@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>maya.sgrave</title>
+  <title>maya.sgrave 🎀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --black: #0a0a0a;
-      --white: #f9f9f9;
-      --accent: #c8a96e;
-      --gray: #888;
-      --light: #f3f0eb;
+      --pink: #ff8fab;
+      --pink-light: #ffc8dd;
+      --pink-pale: #fff0f5;
+      --pink-deep: #e05a7a;
+      --white: #ffffff;
+      --text: #3d1c2e;
+      --gray: #b07a90;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--white);
-      color: var(--black);
+      font-family: 'Nunito', sans-serif;
+      background: var(--pink-pale);
+      color: var(--text);
     }
 
     /* NAV */
@@ -26,41 +29,53 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
-      background: var(--black);
+      padding: 18px 60px;
+      background: var(--white);
+      border-bottom: 3px solid var(--pink-light);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 16px rgba(255,143,171,0.15);
     }
     .logo {
-      font-size: 1.8rem;
-      font-weight: 900;
-      letter-spacing: 4px;
-      color: var(--accent);
-      font-style: italic;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.9rem;
+      color: var(--pink);
+      letter-spacing: 1px;
     }
     .nav-links a {
-      color: var(--white);
+      color: var(--text);
       text-decoration: none;
-      margin-left: 30px;
+      margin-left: 28px;
       font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      font-weight: 700;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--pink); }
     .nav-icons span {
-      color: var(--white);
-      margin-left: 20px;
-      font-size: 1.2rem;
+      margin-left: 18px;
+      font-size: 1.3rem;
       cursor: pointer;
-      transition: color 0.2s;
+      transition: transform 0.2s;
     }
-    .nav-icons span:hover { color: var(--accent); }
+    .nav-icons span:hover { transform: scale(1.2); }
+    .cart-count {
+      background: var(--pink);
+      color: white;
+      border-radius: 50%;
+      width: 18px; height: 18px;
+      font-size: 0.65rem;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: super;
+      margin-left: -6px;
+    }
 
     /* HERO */
     .hero {
-      min-height: 90vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
       padding: 0 60px;
@@ -72,83 +87,125 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: linear-gradient(135deg, rgba(255,200,221,0.82) 0%, rgba(255,143,171,0.65) 100%);
     }
-    .hero-text { position: relative; z-index: 1; }
-    .hero::after {
-      content: '';
-      position: absolute;
-      right: -100px;
-      top: -100px;
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,169,110,0.15), transparent 70%);
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: 100%;
     }
+    .hero-text { flex: 1; }
     .hero-text h1 {
-      font-size: 5rem;
-      font-weight: 900;
+      font-family: 'Pacifico', cursive;
+      font-size: 4.5rem;
       color: var(--white);
-      line-height: 1;
-      letter-spacing: -2px;
+      line-height: 1.1;
+      text-shadow: 2px 4px 12px rgba(180,60,100,0.25);
     }
-    .hero-text h1 span { color: var(--accent); }
+    .hero-text h1 span { color: var(--text); }
     .hero-text p {
-      color: #aaa;
-      margin: 20px 0 40px;
+      color: var(--white);
+      margin: 20px 0 36px;
       font-size: 1.1rem;
-      max-width: 480px;
-      line-height: 1.6;
+      max-width: 460px;
+      line-height: 1.7;
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+    .hero-kitty {
+      flex-shrink: 0;
+      font-size: 12rem;
+      filter: drop-shadow(4px 8px 16px rgba(180,60,100,0.2));
+      animation: float 3s ease-in-out infinite;
+      line-height: 1;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
     }
     .btn {
       display: inline-block;
-      background: var(--accent);
-      color: var(--black);
+      background: var(--pink);
+      color: white;
       text-decoration: none;
-      padding: 16px 40px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      padding: 15px 36px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      border-radius: 50px;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      font-family: 'Nunito', sans-serif;
     }
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(200,169,110,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255,143,171,0.4);
+      background: var(--pink-deep);
     }
     .btn-outline {
-      background: transparent;
-      border: 2px solid var(--white);
-      color: var(--white);
-      margin-left: 16px;
+      background: white;
+      color: var(--pink);
+      border: 2px solid var(--pink);
+      margin-left: 14px;
     }
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--black);
-      box-shadow: none;
-    }
+    .btn-outline:hover { background: var(--pink-pale); box-shadow: none; }
 
     /* MARQUEE */
     .marquee-bar {
-      background: var(--accent);
-      padding: 12px 0;
+      background: var(--pink);
+      padding: 11px 0;
       overflow: hidden;
       white-space: nowrap;
     }
     .marquee-inner {
       display: inline-block;
-      animation: marquee 20s linear infinite;
+      animation: marquee 22s linear infinite;
       font-weight: 700;
       font-size: 0.85rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--black);
+      letter-spacing: 2px;
+      color: white;
     }
     @keyframes marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--white);
+      padding: 80px 60px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .about-emoji { font-size: 7rem; flex-shrink: 0; }
+    .about-text h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.4rem;
+      color: var(--pink);
+      margin-bottom: 18px;
+    }
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 14px;
+      max-width: 600px;
+    }
+    .about-text p strong { color: var(--pink-deep); }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .tag {
+      background: var(--pink-pale);
+      border: 2px solid var(--pink-light);
+      color: var(--pink-deep);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
     }
 
     /* SECTION TITLES */
@@ -157,31 +214,33 @@
       padding: 70px 20px 40px;
     }
     .section-title h2 {
-      font-size: 2.8rem;
-      font-weight: 900;
-      letter-spacing: -1px;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.6rem;
+      color: var(--pink);
     }
-    .section-title p {
-      color: var(--gray);
-      margin-top: 10px;
-      font-size: 1rem;
-    }
+    .section-title p { color: var(--gray); margin-top: 10px; font-size: 1rem; font-weight: 600; }
 
     /* CATEGORIES */
     .categories {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       padding: 0 60px 70px;
       overflow-x: auto;
     }
     .cat-card {
       flex: 1;
-      min-width: 200px;
-      border-radius: 4px;
+      min-width: 180px;
+      border-radius: 20px;
       overflow: hidden;
       position: relative;
       cursor: pointer;
       aspect-ratio: 3/4;
+      border: 3px solid var(--pink-light);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(255,143,171,0.3);
     }
     .cat-card .cat-bg {
       width: 100%;
@@ -195,42 +254,38 @@
     .cat-card:hover .cat-bg { transform: scale(1.05); }
     .cat-card .cat-label {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(255,100,140,0.75));
       color: white;
-      padding: 30px 20px 20px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
+      padding: 28px 16px 16px;
+      font-weight: 900;
+      font-size: 1rem;
     }
-    .cat-bg-1 { background: linear-gradient(135deg, #2c1654, #6c3483); }
-    .cat-bg-2 { background: linear-gradient(135deg, #1a3a4a, #1abc9c); }
-    .cat-bg-3 { background: linear-gradient(135deg, #4a1a1a, #e74c3c); }
-    .cat-bg-4 { background: linear-gradient(135deg, #1a2a4a, #3498db); }
-    .cat-bg-5 { background: linear-gradient(135deg, #2a2a1a, #f39c12); }
+    .cat-bg-1 { background: linear-gradient(135deg, #ffe0f0, #ffb3d1); }
+    .cat-bg-2 { background: linear-gradient(135deg, #fff0e0, #ffd6b3); }
+    .cat-bg-3 { background: linear-gradient(135deg, #e0f0ff, #b3d6ff); }
+    .cat-bg-4 { background: linear-gradient(135deg, #f0ffe0, #d1ffb3); }
+    .cat-bg-5 { background: linear-gradient(135deg, #f5e0ff, #ddb3ff); }
 
     /* PRODUCTS */
-    .products {
-      background: var(--light);
-    }
+    .products { background: var(--pink-pale); }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 28px;
       padding: 0 60px 70px;
     }
     .product-card {
       background: white;
-      border-radius: 4px;
+      border-radius: 20px;
       overflow: hidden;
+      border: 2px solid var(--pink-light);
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
     }
     .product-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 16px 40px rgba(255,143,171,0.2);
     }
     .product-image {
       width: 100%;
@@ -243,177 +298,173 @@
     }
     .badge {
       position: absolute;
-      top: 16px;
-      left: 16px;
-      background: var(--accent);
-      color: var(--black);
+      top: 14px; left: 14px;
+      background: var(--pink);
+      color: white;
       font-size: 0.7rem;
-      font-weight: 700;
-      padding: 4px 10px;
+      font-weight: 900;
+      padding: 4px 12px;
+      border-radius: 50px;
       letter-spacing: 1px;
-      text-transform: uppercase;
     }
-    .badge.sale { background: #e74c3c; color: white; }
+    .badge.rare { background: #c77dff; }
     .wishlist-btn {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 14px; right: 14px;
       background: white;
-      border: none;
+      border: 2px solid var(--pink-light);
       border-radius: 50%;
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: transform 0.2s;
     }
-    .wishlist-btn:hover { transform: scale(1.1); }
-    .product-info { padding: 20px; }
+    .wishlist-btn:hover { transform: scale(1.15); }
+    .product-info { padding: 18px; }
     .product-info .brand {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--gray);
+      color: var(--pink);
+      font-weight: 700;
     }
-    .product-info h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 6px 0;
+    .product-info h3 { font-size: 1rem; font-weight: 700; margin: 6px 0; }
+    .condition {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 8px;
     }
-    .product-info .price {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .price .current { font-weight: 700; font-size: 1.1rem; }
-    .price .original {
-      text-decoration: line-through;
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-    .sizes {
-      display: flex;
-      gap: 6px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
+    .cond-mint { background: #e0ffe8; color: #2d8a50; }
+    .cond-good { background: #fff7e0; color: #a0720a; }
+    .cond-fair { background: #ffe0e0; color: #c0392b; }
+    .price { display: flex; align-items: center; gap: 10px; }
+    .price .current { font-weight: 900; font-size: 1.15rem; color: var(--pink-deep); }
+    .price .original { text-decoration: line-through; color: var(--gray); font-size: 0.9rem; }
+    .sizes { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
     .size-dot {
-      width: 32px;
-      height: 32px;
-      border: 1px solid #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
+      width: 32px; height: 32px;
+      border: 2px solid var(--pink-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
     }
     .size-dot:hover, .size-dot.active {
-      background: var(--black);
+      background: var(--pink);
       color: white;
-      border-color: var(--black);
+      border-color: var(--pink);
     }
     .add-to-cart {
       width: 100%;
-      margin-top: 16px;
+      margin-top: 14px;
       padding: 12px;
-      background: var(--black);
+      background: var(--pink);
       color: white;
       border: none;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      border-radius: 50px;
+      font-weight: 900;
+      font-size: 0.85rem;
       cursor: pointer;
-      transition: background 0.2s;
+      font-family: 'Nunito', sans-serif;
+      transition: background 0.2s, transform 0.2s;
     }
-    .add-to-cart:hover { background: var(--accent); color: var(--black); }
+    .add-to-cart:hover { background: var(--pink-deep); transform: scale(1.02); }
+
+    /* HOW IT WORKS */
+    .how {
+      background: var(--white);
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .how h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.4rem;
+      color: var(--pink);
+      margin-bottom: 50px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .step { padding: 20px; }
+    .step-num {
+      width: 52px; height: 52px;
+      background: var(--pink-light);
+      color: var(--pink-deep);
+      border-radius: 50%;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h4 { font-weight: 900; margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; color: var(--gray); line-height: 1.5; }
 
     /* BANNER */
     .banner {
-      background: var(--black);
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 100%);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 80px 60px;
+      padding: 70px 60px;
       gap: 40px;
     }
-    .banner-text h2 {
-      font-size: 3rem;
-      font-weight: 900;
-      color: white;
-    }
-    .banner-text h2 span { color: var(--accent); }
-    .banner-text p {
-      color: #aaa;
-      margin-top: 12px;
-      font-size: 1rem;
-    }
-    .banner-cta { flex-shrink: 0; }
+    .banner-text h2 { font-family: 'Pacifico', cursive; font-size: 2.6rem; color: white; }
+    .banner-text p { color: rgba(255,255,255,0.85); margin-top: 10px; font-size: 1rem; font-weight: 600; }
+    .btn-white { background: white; color: var(--pink); }
+    .btn-white:hover { background: var(--pink-pale); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
 
     /* FEATURES */
     .features {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1px;
-      background: #e0e0e0;
+      background: var(--pink-light);
     }
-    .feature {
-      background: white;
-      padding: 40px 30px;
-      text-align: center;
-    }
-    .feature .icon { font-size: 2rem; margin-bottom: 14px; }
-    .feature h4 { font-weight: 700; margin-bottom: 6px; }
+    .feature { background: white; padding: 36px 24px; text-align: center; }
+    .feature .icon { font-size: 2rem; margin-bottom: 12px; }
+    .feature h4 { font-weight: 900; margin-bottom: 6px; }
     .feature p { font-size: 0.85rem; color: var(--gray); }
 
     /* NEWSLETTER */
-    .newsletter {
-      background: var(--light);
-      text-align: center;
-      padding: 80px 60px;
-    }
-    .newsletter h2 {
-      font-size: 2.4rem;
-      font-weight: 900;
-    }
-    .newsletter p {
-      color: var(--gray);
-      margin: 12px 0 30px;
-    }
-    .email-form {
-      display: flex;
-      max-width: 480px;
-      margin: 0 auto;
-      gap: 0;
-    }
+    .newsletter { background: var(--pink-pale); text-align: center; padding: 80px 60px; }
+    .newsletter h2 { font-family: 'Pacifico', cursive; font-size: 2.2rem; color: var(--pink); }
+    .newsletter p { color: var(--gray); margin: 12px 0 30px; font-weight: 600; }
+    .email-form { display: flex; max-width: 460px; margin: 0 auto; }
     .email-form input {
       flex: 1;
-      padding: 16px 20px;
-      border: 2px solid var(--black);
+      padding: 15px 20px;
+      border: 2px solid var(--pink-light);
+      border-right: none;
       font-size: 0.9rem;
       outline: none;
+      border-radius: 50px 0 0 50px;
+      font-family: 'Nunito', sans-serif;
     }
     .email-form button {
-      padding: 16px 30px;
-      background: var(--black);
+      padding: 15px 28px;
+      background: var(--pink);
       color: white;
       border: none;
-      font-weight: 700;
+      border-radius: 0 50px 50px 0;
+      font-weight: 900;
       font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
       cursor: pointer;
+      font-family: 'Nunito', sans-serif;
       transition: background 0.2s;
     }
-    .email-form button:hover { background: var(--accent); color: var(--black); }
+    .email-form button:hover { background: var(--pink-deep); }
 
     /* FOOTER */
     footer {
-      background: var(--black);
-      color: #aaa;
+      background: var(--text);
+      color: #d4a0b8;
       padding: 60px 60px 30px;
     }
     .footer-grid {
@@ -422,27 +473,27 @@
       gap: 40px;
       margin-bottom: 40px;
     }
-    .footer-brand .logo { display: block; margin-bottom: 16px; }
+    .footer-brand .logo { display: block; margin-bottom: 14px; color: var(--pink-light); }
     .footer-brand p { font-size: 0.9rem; line-height: 1.6; }
     .footer-col h4 {
-      color: white;
+      color: var(--pink-light);
       font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .footer-col a {
       display: block;
-      color: #888;
+      color: #b07a90;
       text-decoration: none;
       font-size: 0.9rem;
       margin-bottom: 10px;
       transition: color 0.2s;
     }
-    .footer-col a:hover { color: var(--accent); }
+    .footer-col a:hover { color: var(--pink-light); }
     .footer-bottom {
-      border-top: 1px solid #222;
-      padding-top: 24px;
+      border-top: 1px solid rgba(255,143,171,0.2);
+      padding-top: 22px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -450,119 +501,141 @@
       gap: 12px;
     }
     .footer-bottom p { font-size: 0.85rem; }
-    .socials span { margin-left: 16px; font-size: 1.2rem; cursor: pointer; transition: color 0.2s; }
-    .socials span:hover { color: var(--accent); }
+    .socials span { margin-left: 16px; font-size: 1.2rem; cursor: pointer; transition: transform 0.2s; }
+    .socials span:hover { transform: scale(1.2); }
 
-    /* CART TOAST */
+    /* TOAST */
     .toast {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--black);
+      bottom: 30px; right: 30px;
+      background: var(--pink);
       color: white;
-      padding: 16px 28px;
-      font-weight: 600;
+      padding: 14px 26px;
+      font-weight: 700;
       font-size: 0.9rem;
-      border-left: 4px solid var(--accent);
+      border-radius: 50px;
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.3s;
       z-index: 999;
       pointer-events: none;
+      box-shadow: 0 8px 24px rgba(255,143,171,0.4);
     }
     .toast.show { opacity: 1; transform: translateY(0); }
 
-    .cart-count {
-      background: var(--accent);
-      color: var(--black);
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      font-size: 0.65rem;
-      font-weight: 900;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      vertical-align: super;
-      margin-left: -6px;
+    /* DECORATIVE RIBBON */
+    .ribbon {
+      background: var(--pink-light);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink-deep);
     }
 
     @media (max-width: 900px) {
-      nav { padding: 16px 24px; }
+      nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .hero { padding: 60px 24px; min-height: 70vh; }
-      .hero-text h1 { font-size: 3rem; }
-      .categories, .product-grid { padding: 0 24px 60px; }
-      .banner { flex-direction: column; padding: 60px 24px; text-align: center; }
-      .features { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 50px 20px; min-height: 70vh; }
+      .hero-text h1 { font-size: 2.8rem; }
+      .hero-kitty { font-size: 6rem; }
+      .hero-content { gap: 20px; }
+      .about { flex-direction: column; padding: 50px 20px; text-align: center; }
+      .categories, .product-grid { padding: 0 20px 50px; }
+      .banner { flex-direction: column; padding: 50px 20px; text-align: center; }
+      .features, .steps { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .newsletter { padding: 60px 24px; }
-      footer { padding: 40px 24px 20px; }
+      .newsletter, .how { padding: 50px 20px; }
+      footer { padding: 40px 20px 20px; }
     }
   </style>
 </head>
 <body>
+
+<!-- TOP RIBBON -->
+<div class="ribbon">🎀 Free shipping on orders over $40 · Preloved & planet-friendly 🌸</div>
 
 <!-- NAV -->
 <nav>
   <div class="logo">maya.sgrave</div>
   <div class="nav-links">
     <a href="#">New In</a>
-    <a href="#">Men</a>
-    <a href="#">Women</a>
-    <a href="#">Sale</a>
-    <a href="#">About</a>
+    <a href="#">Tops</a>
+    <a href="#">Bottoms</a>
+    <a href="#">Dresses</a>
+    <a href="#">Sell With Us</a>
   </div>
   <div class="nav-icons">
-    <span title="Search">🔍</span>
-    <span title="Wishlist">🤍</span>
-    <span title="Cart">🛒 <span class="cart-count" id="cartCount">0</span></span>
+    <span>🔍</span>
+    <span>🤍</span>
+    <span>🛒<span class="cart-count" id="cartCount">0</span></span>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
-    <h1>Welcome to<br/><span>maya.sgrave</span></h1>
-    <p>Curated styles that speak louder than words. Timeless cuts, premium fabrics, and fits that move with you.</p>
-    <a href="#" class="btn">Shop Now</a>
-    <a href="#" class="btn btn-outline">New Arrivals</a>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Thrift it.<br/><span>Slay it.</span> 🎀</h1>
+      <p>Your fave second-hand boutique for curated, affordable, and totally unique fashion finds. Every piece has a story — make it yours.</p>
+      <a href="#" class="btn">Shop Now 🛍️</a>
+      <a href="#" class="btn btn-outline">New Arrivals ✨</a>
+    </div>
+    <div class="hero-kitty">🐱</div>
   </div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marquee-bar">
   <div class="marquee-inner">
-    FREE SHIPPING ON ORDERS OVER $75 &nbsp;&nbsp;•&nbsp;&nbsp; NEW SUMMER DROP NOW LIVE &nbsp;&nbsp;•&nbsp;&nbsp; UP TO 40% OFF SALE STYLES &nbsp;&nbsp;•&nbsp;&nbsp; FREE RETURNS &nbsp;&nbsp;•&nbsp;&nbsp; SHOP SUSTAINABLY &nbsp;&nbsp;•&nbsp;&nbsp; FREE SHIPPING ON ORDERS OVER $75 &nbsp;&nbsp;•&nbsp;&nbsp; NEW SUMMER DROP NOW LIVE &nbsp;&nbsp;•&nbsp;&nbsp; UP TO 40% OFF SALE STYLES &nbsp;&nbsp;•&nbsp;&nbsp; FREE RETURNS &nbsp;&nbsp;•&nbsp;&nbsp; SHOP SUSTAINABLY &nbsp;&nbsp;•&nbsp;&nbsp;
+    🎀 THRIFT DON'T DRIFT &nbsp;•&nbsp; 🌸 NEW DROPS EVERY FRIDAY &nbsp;•&nbsp; 💕 ALL ITEMS HAND-PICKED &nbsp;•&nbsp; ✨ FREE RETURNS &nbsp;•&nbsp; 🎀 SUSTAINABLE FASHION &nbsp;•&nbsp; 🌸 AFFORDABLE & UNIQUE &nbsp;•&nbsp; 💕 PRELOVED WITH LOVE &nbsp;•&nbsp; ✨ THRIFT DON'T DRIFT &nbsp;•&nbsp; 🌸 NEW DROPS EVERY FRIDAY &nbsp;•&nbsp; 💕 ALL ITEMS HAND-PICKED &nbsp;•&nbsp; ✨ FREE RETURNS &nbsp;•&nbsp; 🎀 SUSTAINABLE FASHION &nbsp;•&nbsp;
   </div>
 </div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-emoji">🎀🛍️🌸</div>
+  <div class="about-text">
+    <h2>What is maya.sgrave?</h2>
+    <p>We're a <strong>curated thrift boutique</strong> with a big personality and even bigger love for second-hand fashion. Every single piece is hand-picked, checked for quality, and styled with care.</p>
+    <p>At maya.sgrave, we believe <strong>sustainable fashion should be fun</strong> — not boring. From vintage Y2K finds to barely-worn designer pieces, there's something here for every vibe and every budget.</p>
+    <p>💌 <strong>New drops every Friday.</strong> Follow us so you never miss a find!</p>
+    <div class="tags">
+      <span class="tag">🌱 Eco-friendly</span>
+      <span class="tag">💸 Budget-friendly</span>
+      <span class="tag">✨ Hand-picked</span>
+      <span class="tag">📦 Fast shipping</span>
+      <span class="tag">💕 Women-owned</span>
+    </div>
+  </div>
+</section>
 
 <!-- CATEGORIES -->
 <section>
   <div class="section-title">
-    <h2>Shop by Category</h2>
-    <p>Find your fit across every style</p>
+    <h2>Shop by Vibe 🎀</h2>
+    <p>Find your aesthetic</p>
   </div>
   <div class="categories">
     <div class="cat-card">
-      <div class="cat-bg cat-bg-1">👔</div>
-      <div class="cat-label">Men's Tops</div>
+      <div class="cat-bg cat-bg-1">👗</div>
+      <div class="cat-label">Y2K Dresses</div>
     </div>
     <div class="cat-card">
-      <div class="cat-bg cat-bg-2">👗</div>
-      <div class="cat-label">Women's Dress</div>
+      <div class="cat-bg cat-bg-2">👚</div>
+      <div class="cat-label">Vintage Tops</div>
     </div>
     <div class="cat-card">
       <div class="cat-bg cat-bg-3">🧥</div>
-      <div class="cat-label">Outerwear</div>
+      <div class="cat-label">Coats & Jackets</div>
     </div>
     <div class="cat-card">
       <div class="cat-bg cat-bg-4">👖</div>
-      <div class="cat-label">Bottoms</div>
+      <div class="cat-label">Denim & Bottoms</div>
     </div>
     <div class="cat-card">
-      <div class="cat-bg cat-bg-5">👟</div>
-      <div class="cat-label">Footwear</div>
+      <div class="cat-bg cat-bg-5">🎒</div>
+      <div class="cat-label">Bags & Accessories</div>
     </div>
   </div>
 </section>
@@ -570,133 +643,153 @@
 <!-- PRODUCTS -->
 <section class="products">
   <div class="section-title">
-    <h2>Trending Now</h2>
-    <p>Hand-picked styles flying off the shelves</p>
+    <h2>Just Dropped ✨</h2>
+    <p>Fresh finds — grab them before they're gone!</p>
   </div>
   <div class="product-grid">
 
     <div class="product-card">
-      <div class="product-image" style="background: linear-gradient(135deg,#f8f0e8,#e8d8c0);">
+      <div class="product-image" style="background: linear-gradient(135deg,#ffe0f0,#ffb3d1);">
         🧥
-        <span class="badge">New</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">Urban Craft</span>
-        <h3>Linen Relaxed Blazer</h3>
-        <div class="price"><span class="current">$129</span></div>
-        <div class="sizes">
-          <div class="size-dot">XS</div><div class="size-dot active">S</div>
-          <div class="size-dot">M</div><div class="size-dot">L</div><div class="size-dot">XL</div>
-        </div>
-        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background: linear-gradient(135deg,#e8ebf5,#c8d0e8);">
-        👗
-        <span class="badge sale">Sale</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">Solène</span>
-        <h3>Midi Wrap Dress</h3>
-        <div class="price">
-          <span class="current">$79</span>
-          <span class="original">$119</span>
-        </div>
-        <div class="sizes">
-          <div class="size-dot">XS</div><div class="size-dot">S</div>
-          <div class="size-dot active">M</div><div class="size-dot">L</div>
-        </div>
-        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background: linear-gradient(135deg,#1a1a1a,#333);">
-        👖
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">Rawdenim Co.</span>
-        <h3>Slim Tapered Jeans</h3>
-        <div class="price"><span class="current">$95</span></div>
-        <div class="sizes">
-          <div class="size-dot">28</div><div class="size-dot">30</div>
-          <div class="size-dot active">32</div><div class="size-dot">34</div>
-        </div>
-        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background: linear-gradient(135deg,#f5e8e8,#e8c0c0);">
-        👟
-        <span class="badge">New</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">Stride</span>
-        <h3>Low-Top Canvas Sneaker</h3>
-        <div class="price"><span class="current">$65</span></div>
-        <div class="sizes">
-          <div class="size-dot">39</div><div class="size-dot">40</div>
-          <div class="size-dot active">41</div><div class="size-dot">42</div><div class="size-dot">43</div>
-        </div>
-        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background: linear-gradient(135deg,#e8f0e8,#c0d8c0);">
-        🧤
-        <span class="badge sale">−30%</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">Nördic</span>
-        <h3>Merino Knit Sweater</h3>
-        <div class="price">
-          <span class="current">$84</span>
-          <span class="original">$119</span>
-        </div>
-        <div class="sizes">
-          <div class="size-dot">S</div><div class="size-dot active">M</div>
-          <div class="size-dot">L</div><div class="size-dot">XL</div>
-        </div>
-        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background: linear-gradient(135deg,#f5f0e0,#e8d890);">
-        🧢
+        <span class="badge">New In</span>
         <button class="wishlist-btn">🤍</button>
       </div>
       <div class="product-info">
         <span class="brand">maya.sgrave</span>
-        <h3>Classic Logo Cap</h3>
-        <div class="price"><span class="current">$35</span></div>
+        <h3>Fluffy Pink Coat</h3>
+        <span class="condition cond-mint">Mint Condition</span>
+        <div class="price"><span class="current">$38</span><span class="original">$120</span></div>
         <div class="sizes">
-          <div class="size-dot active">One Size</div>
+          <div class="size-dot">S</div><div class="size-dot active">M</div><div class="size-dot">L</div>
         </div>
-        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background: linear-gradient(135deg,#e8ebf8,#c8d0ee);">
+        👗
+        <span class="badge rare">Rare Find</span>
+        <button class="wishlist-btn">🤍</button>
+      </div>
+      <div class="product-info">
+        <span class="brand">Y2K Vintage</span>
+        <h3>Baby Blue Mini Dress</h3>
+        <span class="condition cond-good">Good Condition</span>
+        <div class="price"><span class="current">$24</span><span class="original">$80</span></div>
+        <div class="sizes">
+          <div class="size-dot active">XS</div><div class="size-dot">S</div>
+        </div>
+        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background: linear-gradient(135deg,#fff4e0,#ffd9a0);">
+        👚
+        <button class="wishlist-btn">🤍</button>
+      </div>
+      <div class="product-info">
+        <span class="brand">Vintage</span>
+        <h3>Graphic Band Tee</h3>
+        <span class="condition cond-good">Good Condition</span>
+        <div class="price"><span class="current">$14</span><span class="original">$45</span></div>
+        <div class="sizes">
+          <div class="size-dot">S</div><div class="size-dot active">M</div><div class="size-dot">L</div><div class="size-dot">XL</div>
+        </div>
+        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background: linear-gradient(135deg,#e8ffe8,#b3f0b3);">
+        👖
+        <span class="badge">New In</span>
+        <button class="wishlist-btn">🤍</button>
+      </div>
+      <div class="product-info">
+        <span class="brand">Denim Co.</span>
+        <h3>High-Waist Flare Jeans</h3>
+        <span class="condition cond-mint">Mint Condition</span>
+        <div class="price"><span class="current">$29</span><span class="original">$95</span></div>
+        <div class="sizes">
+          <div class="size-dot">26</div><div class="size-dot active">28</div><div class="size-dot">30</div>
+        </div>
+        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background: linear-gradient(135deg,#f5e0ff,#ddb3ff);">
+        🎒
+        <span class="badge rare">Rare Find</span>
+        <button class="wishlist-btn">🤍</button>
+      </div>
+      <div class="product-info">
+        <span class="brand">Y2K Vintage</span>
+        <h3>Lilac Mini Backpack</h3>
+        <span class="condition cond-mint">Mint Condition</span>
+        <div class="price"><span class="current">$19</span><span class="original">$60</span></div>
+        <div class="sizes"><div class="size-dot active">One Size</div></div>
+        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background: linear-gradient(135deg,#ffe0e0,#ffb3b3);">
+        🧣
+        <button class="wishlist-btn">🤍</button>
+      </div>
+      <div class="product-info">
+        <span class="brand">maya.sgrave</span>
+        <h3>Knit Strawberry Sweater</h3>
+        <span class="condition cond-fair">Loved Condition</span>
+        <div class="price"><span class="current">$22</span><span class="original">$75</span></div>
+        <div class="sizes">
+          <div class="size-dot">S</div><div class="size-dot active">M</div><div class="size-dot">L</div>
+        </div>
+        <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2>How It Works 🌸</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>We Find It</h4>
+      <p>Maya hand-picks every piece from thrift stores, vintage markets & private sellers</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>We Check It</h4>
+      <p>Every item is inspected, cleaned & honestly graded so you know exactly what you're getting</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>You Buy It</h4>
+      <p>Secure checkout, fast shipping, cute packaging. Every order gets a little surprise 🎀</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>You Slay</h4>
+      <p>Rock your new fit, tag us on Instagram and show the world your unique style ✨</p>
+    </div>
+  </div>
+</section>
+
 <!-- BANNER -->
 <section class="banner">
   <div class="banner-text">
-    <h2>Summer Sale<br/><span>Up to 40% Off</span></h2>
-    <p>Limited time. Unlimited style. Don't sleep on it.</p>
+    <h2>New Drop Every Friday 🎀</h2>
+    <p>Follow @maya.sgrave so you never miss a find. Pieces sell out FAST!</p>
   </div>
-  <div class="banner-cta">
-    <a href="#" class="btn">Shop the Sale</a>
+  <div>
+    <a href="#" class="btn btn-white">Follow Us 💕</a>
   </div>
 </section>
 
@@ -704,33 +797,33 @@
 <div class="features">
   <div class="feature">
     <div class="icon">🚚</div>
-    <h4>Free Shipping</h4>
-    <p>On all orders over $75</p>
+    <h4>Fast Shipping</h4>
+    <p>Orders dispatched within 2 days</p>
   </div>
   <div class="feature">
-    <div class="icon">↩️</div>
-    <h4>Easy Returns</h4>
-    <p>30-day hassle-free returns</p>
-  </div>
-  <div class="feature">
-    <div class="icon">🔒</div>
-    <h4>Secure Checkout</h4>
-    <p>Your data is always safe</p>
+    <div class="icon">✅</div>
+    <h4>Quality Checked</h4>
+    <p>Every item inspected before listing</p>
   </div>
   <div class="feature">
     <div class="icon">🌱</div>
     <h4>Sustainable</h4>
-    <p>Ethically sourced fabrics</p>
+    <p>Second-hand = saving the planet</p>
+  </div>
+  <div class="feature">
+    <div class="icon">💌</div>
+    <h4>Cute Packaging</h4>
+    <p>Every order wrapped with love 🎀</p>
   </div>
 </div>
 
 <!-- NEWSLETTER -->
 <section class="newsletter">
-  <h2>Stay in the Loop</h2>
-  <p>Get early access to new drops, exclusive deals, and style inspo.</p>
+  <h2>Get Early Access 🌸</h2>
+  <p>Join the maya.sgrave fam — get notified before new drops go live!</p>
   <div class="email-form">
-    <input type="email" placeholder="Enter your email address" />
-    <button onclick="subscribeNewsletter()">Subscribe</button>
+    <input type="email" placeholder="your@email.com" />
+    <button onclick="subscribeNewsletter()">Join 🎀</button>
   </div>
 </section>
 
@@ -739,96 +832,82 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <span class="logo">maya.sgrave</span>
-      <p>Modern clothing for modern people. Style that doesn't compromise on comfort, quality, or conscience.</p>
+      <p>A curated second-hand boutique with big pink energy. Sustainable, affordable, and totally unique fashion for everyone.</p>
     </div>
     <div class="footer-col">
       <h4>Shop</h4>
-      <a href="#">New Arrivals</a>
-      <a href="#">Men</a>
-      <a href="#">Women</a>
+      <a href="#">New In</a>
+      <a href="#">Dresses</a>
+      <a href="#">Tops</a>
+      <a href="#">Bottoms</a>
       <a href="#">Accessories</a>
-      <a href="#">Sale</a>
     </div>
     <div class="footer-col">
       <h4>Help</h4>
       <a href="#">Size Guide</a>
+      <a href="#">Condition Guide</a>
       <a href="#">Shipping Info</a>
       <a href="#">Returns</a>
-      <a href="#">Track Order</a>
-      <a href="#">Contact Us</a>
+      <a href="#">Contact</a>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
-      <a href="#">About DRIP</a>
+      <h4>About</h4>
+      <a href="#">Our Story</a>
       <a href="#">Sustainability</a>
-      <a href="#">Careers</a>
-      <a href="#">Press</a>
+      <a href="#">Sell With Us</a>
+      <a href="#">Instagram</a>
       <a href="#">Privacy Policy</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 maya.sgrave. All rights reserved.</p>
+    <p>© 2026 maya.sgrave 🎀 All rights reserved.</p>
     <div class="socials">
-      <span title="Instagram">📸</span>
-      <span title="TikTok">🎵</span>
-      <span title="Twitter">🐦</span>
-      <span title="Pinterest">📌</span>
+      <span>📸</span><span>🎵</span><span>🐦</span><span>📌</span>
     </div>
   </div>
 </footer>
 
-<!-- TOAST -->
 <div class="toast" id="toast">✓ Added to cart!</div>
 
 <script>
   let cartCount = 0;
-
   function addToCart(btn) {
     cartCount++;
     document.getElementById('cartCount').textContent = cartCount;
-    showToast('✓ Added to cart!');
-    btn.textContent = '✓ Added!';
+    showToast('🎀 Added to cart!');
+    btn.textContent = '✓ Added! 💕';
     btn.style.background = '#2ecc71';
-    btn.style.color = '#fff';
     setTimeout(() => {
-      btn.textContent = 'Add to Cart';
+      btn.textContent = 'Add to Cart 🛍️';
       btn.style.background = '';
-      btn.style.color = '';
     }, 1500);
   }
-
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2500);
   }
-
   function subscribeNewsletter() {
     const input = document.querySelector('.email-form input');
     if (input.value.includes('@')) {
-      showToast('🎉 You\'re subscribed!');
+      showToast('🎀 Welcome to the fam!');
       input.value = '';
     } else {
-      showToast('⚠️ Enter a valid email');
+      showToast('⚠️ Enter a valid email!');
     }
   }
-
-  // Size selector toggle
   document.querySelectorAll('.size-dot').forEach(dot => {
     dot.addEventListener('click', function() {
       this.closest('.sizes').querySelectorAll('.size-dot').forEach(d => d.classList.remove('active'));
       this.classList.add('active');
     });
   });
-
-  // Wishlist toggle
   document.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       this.textContent = this.textContent === '🤍' ? '❤️' : '🤍';
     });
   });
 </script>
-
 </body>
 </html>
