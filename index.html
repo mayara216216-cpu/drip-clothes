@@ -122,40 +122,22 @@
       animation: float 3s ease-in-out infinite;
       line-height: 1;
     }
-    /* Hello Kitty side decorations */
-    .hk-left, .hk-right {
+    /* Hello Kitty stickers - fixed spots, no animation */
+    .hk-sticker {
       position: fixed;
-      top: 0;
-      bottom: 0;
-      z-index: 50;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      padding: 40px 0;
       pointer-events: none;
+      z-index: 50;
+      filter: drop-shadow(2px 3px 6px rgba(255,143,171,0.4));
     }
-    .hk-left { left: 4px; }
-    .hk-right { right: 4px; }
-    .hk-icon {
-      animation: float 3s ease-in-out infinite;
-      opacity: 0.88;
-      filter: drop-shadow(0 2px 8px rgba(255,143,171,0.5));
-    }
-    .hk-icon img { width: 58px; height: auto; display: block; }
-    .hk-icon:nth-child(2) { animation-delay: 0.7s; }
-    .hk-icon:nth-child(2) img { width: 46px; }
-    .hk-icon:nth-child(3) { animation-delay: 1.4s; }
-    .hk-icon:nth-child(4) { animation-delay: 2.1s; }
-    .hk-icon:nth-child(4) img { width: 50px; }
-    /* scattered background HKs */
+    .hk-sticker img { display: block; }
     .hk-bg {
       position: fixed;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.07;
+      opacity: 0.08;
     }
-    .hk-bg img { width: 120px; height: auto; }
-    @media (max-width: 900px) { .hk-left, .hk-right, .hk-bg { display: none; } }
+    .hk-bg img { display: block; }
+    @media (max-width: 900px) { .hk-sticker, .hk-bg { display: none; } }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-18px); }
@@ -587,25 +569,22 @@
 <body>
 
 <!-- HELLO KITTY SIDE DECORATIONS -->
-<!-- HK side decorations -->
-<div class="hk-left">
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-</div>
-<div class="hk-right">
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-  <div class="hk-icon"><img src="hk.png" alt=""/></div>
-</div>
-<!-- HK scattered background -->
-<div class="hk-bg" style="top:10%;left:15%;"><img src="hk.png" alt=""/></div>
-<div class="hk-bg" style="top:30%;right:18%;"><img src="hk.png" alt=""/></div>
-<div class="hk-bg" style="top:55%;left:20%;"><img src="hk.png" alt=""/></div>
-<div class="hk-bg" style="top:70%;right:15%;"><img src="hk.png" alt=""/></div>
-<div class="hk-bg" style="top:85%;left:40%;"><img src="hk.png" alt=""/></div>
+<!-- HK stickers placed at specific spots -->
+<!-- Top left corner -->
+<div class="hk-sticker" style="top:80px; left:10px;"><img src="hk.png" width="70"/></div>
+<!-- Top right corner -->
+<div class="hk-sticker" style="top:80px; right:10px;"><img src="hk.png" width="65"/></div>
+<!-- Mid left -->
+<div class="hk-sticker" style="top:45%; left:8px;"><img src="hk.png" width="60"/></div>
+<!-- Mid right -->
+<div class="hk-sticker" style="top:40%; right:8px;"><img src="hk.png" width="72"/></div>
+<!-- Bottom left -->
+<div class="hk-sticker" style="bottom:120px; left:10px;"><img src="hk.png" width="58"/></div>
+<!-- Bottom right -->
+<div class="hk-sticker" style="bottom:100px; right:10px;"><img src="hk.png" width="64"/></div>
+<!-- Faint background ones -->
+<div class="hk-bg" style="top:20%; left:12%;"><img src="hk.png" width="110"/></div>
+<div class="hk-bg" style="top:60%; right:12%;"><img src="hk.png" width="100"/></div>
 
 <!-- INSTAGRAM TOP BAR -->
 <div style="background: linear-gradient(90deg, #e1306c, #ff8fab); text-align: center; padding: 9px 20px; font-size: 0.85rem; font-weight: 700; color: white; letter-spacing: 0.5px;">
