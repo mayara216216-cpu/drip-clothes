@@ -87,7 +87,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,200,221,0.82) 0%, rgba(255,143,171,0.65) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 100%);
     }
     .hero-content {
       position: relative;
@@ -122,6 +122,28 @@
       animation: float 3s ease-in-out infinite;
       line-height: 1;
     }
+    /* Hello Kitty side decorations */
+    .hk-left, .hk-right {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      pointer-events: none;
+    }
+    .hk-left { left: 8px; }
+    .hk-right { right: 8px; }
+    .hk-icon {
+      font-size: 1.8rem;
+      animation: float 3s ease-in-out infinite;
+      opacity: 0.85;
+    }
+    .hk-icon:nth-child(2) { animation-delay: 0.5s; }
+    .hk-icon:nth-child(3) { animation-delay: 1s; }
+    .hk-icon:nth-child(4) { animation-delay: 1.5s; }
+    @media (max-width: 900px) { .hk-left, .hk-right { display: none; } }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-18px); }
@@ -552,6 +574,20 @@
 </head>
 <body>
 
+<!-- HELLO KITTY SIDE DECORATIONS -->
+<div class="hk-left">
+  <div class="hk-icon">🐱</div>
+  <div class="hk-icon">🎀</div>
+  <div class="hk-icon">🌸</div>
+  <div class="hk-icon">💕</div>
+</div>
+<div class="hk-right">
+  <div class="hk-icon">🐱</div>
+  <div class="hk-icon">⭐</div>
+  <div class="hk-icon">🌸</div>
+  <div class="hk-icon">🎀</div>
+</div>
+
 <!-- TOP RIBBON -->
 <div class="ribbon">🎀 Free shipping on orders over $40 · Preloved & planet-friendly 🌸</div>
 
@@ -599,7 +635,7 @@
     <h2>What is maya.sgrave?</h2>
     <p>We're a <strong>curated thrift boutique</strong> with a big personality and even bigger love for second-hand fashion. Every single piece is hand-picked, checked for quality, and styled with care.</p>
     <p>At maya.sgrave, we believe <strong>sustainable fashion should be fun</strong> — not boring. From vintage Y2K finds to barely-worn designer pieces, there's something here for every vibe and every budget.</p>
-    <p>💌 <strong>New drops every Friday.</strong> Follow us so you never miss a find!</p>
+    <p>💌 <strong>New drops every Friday.</strong> Follow us on <a href="https://www.instagram.com/maya.sgrave/" target="_blank" style="color:#fff;font-weight:900;text-decoration:underline;">@maya.sgrave</a> so you never miss a find!</p>
     <div class="tags">
       <span class="tag">🌱 Eco-friendly</span>
       <span class="tag">💸 Budget-friendly</span>
@@ -786,10 +822,10 @@
 <section class="banner">
   <div class="banner-text">
     <h2>New Drop Every Friday 🎀</h2>
-    <p>Follow @maya.sgrave so you never miss a find. Pieces sell out FAST!</p>
+    <p>Follow <strong>@maya.sgrave</strong> so you never miss a find. Pieces sell out FAST!</p>
   </div>
   <div>
-    <a href="#" class="btn btn-white">Follow Us 💕</a>
+    <a href="https://www.instagram.com/maya.sgrave/" target="_blank" class="btn btn-white">Follow on Instagram 📸</a>
   </div>
 </section>
 
@@ -862,7 +898,7 @@
   <div class="footer-bottom">
     <p>© 2026 maya.sgrave 🎀 All rights reserved.</p>
     <div class="socials">
-      <span>📸</span><span>🎵</span><span>🐦</span><span>📌</span>
+      <a href="https://www.instagram.com/maya.sgrave/" target="_blank" style="text-decoration:none;"><span title="Instagram">📸</span></a><span>🎵</span><span>🐦</span><span>📌</span>
     </div>
   </div>
 </footer>
