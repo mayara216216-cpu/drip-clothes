@@ -276,110 +276,129 @@
     .cat-bg-5 { background: linear-gradient(135deg, #f5e0ff, #ddb3ff); }
 
     /* PRODUCTS */
+    /* CATALOG */
     .products { background: var(--pink-pale); }
-    .product-grid {
+    .catalog-section { padding: 0 50px 50px; }
+    .catalog-row-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--pink-light);
+    }
+    .catalog-row-title h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.3rem;
+      color: var(--pink-deep);
+    }
+    .catalog-row-title span {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .product-row {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 28px;
-      padding: 0 60px 70px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
     }
     .product-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 2px solid var(--pink-light);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1.5px solid #f0e0ea;
+      transition: transform 0.25s, box-shadow 0.25s;
       cursor: pointer;
     }
     .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(255,143,171,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(255,143,171,0.18);
     }
     .product-image {
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 1/1;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 5rem;
       position: relative;
+      overflow: hidden;
     }
+    .product-image img { width:100%; height:100%; object-fit:cover; }
     .badge {
       position: absolute;
-      top: 14px; left: 14px;
+      top: 8px; left: 8px;
       background: var(--pink);
       color: white;
-      font-size: 0.7rem;
+      font-size: 0.62rem;
       font-weight: 900;
-      padding: 4px 12px;
-      border-radius: 50px;
-      letter-spacing: 1px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      z-index: 2;
     }
-    .badge.rare { background: #c77dff; }
+    .badge.rare { background: #9b59b6; }
+    .badge.one-left { background: #e74c3c; }
+    .badge.grade { background: #2ecc71; color: #fff; }
     .wishlist-btn {
       position: absolute;
-      top: 14px; right: 14px;
-      background: white;
-      border: 2px solid var(--pink-light);
+      top: 8px; right: 8px;
+      background: rgba(255,255,255,0.9);
+      border: none;
       border-radius: 50%;
-      width: 36px; height: 36px;
-      font-size: 1rem;
+      width: 30px; height: 30px;
+      font-size: 0.85rem;
       cursor: pointer;
       transition: transform 0.2s;
+      z-index: 2;
     }
     .wishlist-btn:hover { transform: scale(1.15); }
-    .product-info { padding: 18px; }
+    .product-info { padding: 12px 14px 14px; }
     .product-info .brand {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: var(--pink);
       font-weight: 700;
     }
-    .product-info h3 { font-size: 1rem; font-weight: 700; margin: 6px 0; }
+    .product-info h3 { font-size: 0.88rem; font-weight: 700; margin: 4px 0 6px; line-height: 1.3; }
     .condition {
       display: inline-block;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      margin-bottom: 8px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
     }
-    .cond-mint { background: #e0ffe8; color: #2d8a50; }
-    .cond-good { background: #fff7e0; color: #a0720a; }
-    .cond-fair { background: #ffe0e0; color: #c0392b; }
-    .price { display: flex; align-items: center; gap: 10px; }
-    .price .current { font-weight: 900; font-size: 1.15rem; color: var(--pink-deep); }
-    .price .original { text-decoration: line-through; color: var(--gray); font-size: 0.9rem; }
-    .sizes { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
-    .size-dot {
-      width: 32px; height: 32px;
-      border: 2px solid var(--pink-light);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.7rem; font-weight: 700;
-      cursor: pointer; transition: background 0.2s;
-    }
-    .size-dot:hover, .size-dot.active {
-      background: var(--pink);
-      color: white;
-      border-color: var(--pink);
-    }
+    .cond-mint { background: #e8fff0; color: #27ae60; }
+    .cond-good { background: #fffbe0; color: #e67e22; }
+    .cond-fair { background: #ffe8e8; color: #c0392b; }
+    .price { display: flex; align-items: center; gap: 8px; }
+    .price .current { font-weight: 900; font-size: 1rem; color: var(--pink-deep); }
+    .price .original { text-decoration: line-through; color: var(--gray); font-size: 0.8rem; }
     .add-to-cart {
       width: 100%;
-      margin-top: 14px;
-      padding: 12px;
+      margin-top: 10px;
+      padding: 9px;
       background: var(--pink);
       color: white;
       border: none;
-      border-radius: 50px;
+      border-radius: 8px;
       font-weight: 900;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       cursor: pointer;
       font-family: 'Nunito', sans-serif;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s;
     }
-    .add-to-cart:hover { background: var(--pink-deep); transform: scale(1.02); }
+    .add-to-cart:hover { background: var(--pink-deep); }
+    @media (max-width: 900px) {
+      .catalog-section { padding: 0 16px 40px; }
+      .product-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
 
     /* HOW IT WORKS */
     .how {
@@ -656,368 +675,100 @@
     <h2>Just Dropped ✨</h2>
     <p>Fresh finds — grab them before they're gone!</p>
   </div>
-  <div class="product-grid">
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p1.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
+  <div class="catalog-section">
+    <!-- ROW 1: Weekly Drops -->
+    <div class='catalog-row-title'>
+      <h3>🌸 Weekly Drops</h3>
+      <span>Just landed this week</span>
+    </div>
+    <div class='product-row'>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p1.jpg'/><span class='badge one-left'>Only 1 Left</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Hello Kitty Tote Bag</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Hello Kitty Tote Bag</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p2.jpg'/><span class='badge'>New In</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Dark Pattern Crop Top</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
+      </div>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p3.jpg'/><span class='badge grade'>Vintage Grade A</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Lace White Top</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
+      </div>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p4.jpg'/><span class='badge one-left'>Only 1 Left</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Photo Print Graphic Tee</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p2.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
+    <!-- ROW 2: Trending Vintage -->
+    <div class='catalog-row-title'>
+      <h3>✨ Trending Vintage</h3>
+      <span>Flying off the shelves</span>
+    </div>
+    <div class='product-row'>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p5.jpg'/><span class='badge rare'>Rare Find</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Hellfire Club Sweatshirt</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Dark Pattern Crop Top</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p7.jpg'/><span class='badge grade'>Vintage Grade A</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Off-Shoulder Ribbon Top</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
+      </div>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p8.jpg'/><span class='badge one-left'>Only 1 Left</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Light Blue Midi Dress</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
+      </div>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p9.jpg'/><span class='badge rare'>Rare Find</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Grey Satin Slip Dress</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p3.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge">New In</span>
-        <button class="wishlist-btn">🤍</button>
+    <!-- ROW 3: Curated Essentials -->
+    <div class='catalog-row-title'>
+      <h3>🎀 Curated Essentials</h3>
+      <span>Hand-picked by maya</span>
+    </div>
+    <div class='product-row'>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p11.jpg'/><span class='badge'>New In</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Wide Leg Blue Jeans</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Lace White Top</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p13.jpg'/><span class='badge grade'>Vintage Grade A</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Black Ruffle Midi Dress</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
+      </div>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p17.jpg'/><span class='badge one-left'>Only 1 Left</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>White Lace Slip Dress</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
+      </div>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p23.jpg'/><span class='badge rare'>Rare Find</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Red Satin Qipao Dress</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p4.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge rare">Rare Find</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Photo Print Graphic Tee</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
+    <!-- ROW 4: Dark & Edgy -->
+    <div class='catalog-row-title'>
+      <h3>🖤 Dark & Edgy</h3>
+      <span>Bold pieces for bold people</span>
     </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p5.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
+    <div class='product-row'>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p21.jpg'/><span class='badge one-left'>Only 1 Left</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Long Black Coat</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Hellfire Club Sweatshirt</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p25.jpg'/><span class='badge grade'>Vintage Grade A</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Black Collar Mini Dress</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge rare">Rare Find</span>
-        <button class="wishlist-btn">🤍</button>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p28.jpg'/><span class='badge one-left'>Only 1 Left</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Black Tank Dress</h3><span class='condition cond-good'>Good</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Anime Graphic Tote Bag</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p7.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Off-Shoulder Ribbon Top</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p8.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge">New In</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Light Blue Midi Dress</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p9.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Grey Satin Slip Dress</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p10.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge rare">Rare Find</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Choker Pack 3pcs</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p11.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge">New In</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Wide Leg Blue Jeans</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p13.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Black Ruffle Midi Dress</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p14.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Black Heeled Loafers</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p15.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge rare">Rare Find</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Skull Studded Belt</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p17.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>White Lace Slip Dress</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p19.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge">New In</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Black Ankle Boots</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p21.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Long Black Coat</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p22.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge rare">Rare Find</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Brown Velvet Mini Skirt</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p23.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Red Satin Qipao Dress</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p24.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge">New In</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Brown Layered Slip Dress</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p25.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge rare">Rare Find</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Black Collar Mini Dress</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p26.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Chunky Chain Belt</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p27.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge">New In</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Fluffy White Leg Warmers</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p28.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Black Tank Dress</h3>
-        <span class="condition cond-good">Good Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image" style="background:#f5f5f5;">
-        <img src="items/p30.jpg" style="width:100%;height:100%;object-fit:cover;"/>
-        <span class="badge rare">Rare Find</span>
-        <button class="wishlist-btn">🤍</button>
-      </div>
-      <div class="product-info">
-        <span class="brand">maya.sgrave</span>
-        <h3>Black Lolita Mini Dress</h3>
-        <span class="condition cond-mint">Mint Condition</span>
-        <div class="price"><span class="current">25DT</span></div>
-                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart 🛍️</button>
+      <div class='product-card'>
+        <div class='product-image'><img src='items/p30.jpg'/><span class='badge rare'>Rare Find</span><button class='wishlist-btn'>🤍</button></div>
+        <div class='product-info'><span class='brand'>maya.sgrave</span><h3>Black Lolita Mini Dress</h3><span class='condition cond-mint'>Mint</span><div class='price'><span class='current'>25DT</span></div><button class='add-to-cart' onclick='addToCart(this)'>Add to Cart 🛍️</button></div>
       </div>
     </div>
 
