@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DRIP — Modern Clothing</title>
+  <title>maya.sgrave</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -37,6 +37,7 @@
       font-weight: 900;
       letter-spacing: 4px;
       color: var(--accent);
+      font-style: italic;
     }
     .nav-links a {
       color: var(--white);
@@ -59,14 +60,21 @@
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 60%, #3a2e1e 100%);
       min-height: 90vh;
       display: flex;
       align-items: center;
       padding: 0 60px;
       position: relative;
       overflow: hidden;
+      background: url('hero.jpg') center center / cover no-repeat;
     }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    .hero-text { position: relative; z-index: 1; }
     .hero::after {
       content: '';
       position: absolute;
@@ -497,7 +505,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">DRIP</div>
+  <div class="logo">maya.sgrave</div>
   <div class="nav-links">
     <a href="#">New In</a>
     <a href="#">Men</a>
@@ -515,7 +523,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Wear Your<br/><span>Story.</span></h1>
+    <h1>Welcome to<br/><span>maya.sgrave</span></h1>
     <p>Curated styles that speak louder than words. Timeless cuts, premium fabrics, and fits that move with you.</p>
     <a href="#" class="btn">Shop Now</a>
     <a href="#" class="btn btn-outline">New Arrivals</a>
@@ -668,7 +676,7 @@
         <button class="wishlist-btn">🤍</button>
       </div>
       <div class="product-info">
-        <span class="brand">DRIP Essentials</span>
+        <span class="brand">maya.sgrave</span>
         <h3>Classic Logo Cap</h3>
         <div class="price"><span class="current">$35</span></div>
         <div class="sizes">
@@ -730,7 +738,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <span class="logo">DRIP</span>
+      <span class="logo">maya.sgrave</span>
       <p>Modern clothing for modern people. Style that doesn't compromise on comfort, quality, or conscience.</p>
     </div>
     <div class="footer-col">
@@ -759,7 +767,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 DRIP. All rights reserved.</p>
+    <p>© 2026 maya.sgrave. All rights reserved.</p>
     <div class="socials">
       <span title="Instagram">📸</span>
       <span title="TikTok">🎵</span>
